@@ -27,3 +27,5 @@ Thumbs.db
 .idea/
 # --- Docker ---
 *.log
+n8n/n8n_data/
+n8n/n8n_data/
