@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_JDHN4QXWEfG8zr4yEWcJVA" name="Bilan_Fournisseurs" dataPackage="_JDHN4gXWEfG8zr4yEWcJVA" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/Bilan/Bilan Fournisseurs.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="3" FirstLineCaption="true" SheetName="Bilan" firstColumn="1" lastColumn="4" thousandSeparator="','" decimalSeparator="'.'" sheetList="Bilan:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_JDHN4gXWEfG8zr4yEWcJVA" name="default" dataManager="_JDHN4QXWEfG8zr4yEWcJVA">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_JDHN4wXWEfG8zr4yEWcJVA" id="_l3M5wAXVEfG8zr4yEWcJVA" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JDHN5AXWEfG8zr4yEWcJVA" label="Etiquettes_de_lignes" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JDHN5QXWEfG8zr4yEWcJVA" label="Somme_de_Total_en_DT" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JDHN5gXWEfG8zr4yEWcJVA" label="Somme_de_Nombre_de_marches" length="255" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JDHN5wXWEfG8zr4yEWcJVA" label="Somme_de___CA" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

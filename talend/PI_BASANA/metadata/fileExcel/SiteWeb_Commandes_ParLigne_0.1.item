@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_sCF9MQZuEfG6B7JMKJ_nSg" name="SiteWeb_Commandes_ParLigne" dataPackage="_sCF9MgZuEfG6B7JMKJ_nSg" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/web_site_data/Commandes ( produit par ligne ).xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Sheet1" firstColumn="1" lastColumn="33" thousandSeparator="','" decimalSeparator="'.'" selectAllSheets="true" sheetList="Sheet1:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+    <sheetColumns>M</sheetColumns>
+    <sheetColumns>N</sheetColumns>
+    <sheetColumns>O</sheetColumns>
+    <sheetColumns>P</sheetColumns>
+    <sheetColumns>Q</sheetColumns>
+    <sheetColumns>R</sheetColumns>
+    <sheetColumns>S</sheetColumns>
+    <sheetColumns>T</sheetColumns>
+    <sheetColumns>U</sheetColumns>
+    <sheetColumns>V</sheetColumns>
+    <sheetColumns>W</sheetColumns>
+    <sheetColumns>X</sheetColumns>
+    <sheetColumns>Y</sheetColumns>
+    <sheetColumns>Z</sheetColumns>
+    <sheetColumns>AA</sheetColumns>
+    <sheetColumns>AB</sheetColumns>
+    <sheetColumns>AC</sheetColumns>
+    <sheetColumns>AD</sheetColumns>
+    <sheetColumns>AE</sheetColumns>
+    <sheetColumns>AF</sheetColumns>
+    <sheetColumns>AG</sheetColumns>
+    <sheetColumns>AH</sheetColumns>
+    <sheetColumns>AI</sheetColumns>
+    <sheetColumns>AJ</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_sCF9MgZuEfG6B7JMKJ_nSg" name="default" dataManager="_sCF9MQZuEfG6B7JMKJ_nSg">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_sCF9MwZuEfG6B7JMKJ_nSg" id="_G5Vh4AZuEfG6B7JMKJ_nSg" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9NAZuEfG6B7JMKJ_nSg" label="Numero_de_commande" length="255" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9NQZuEfG6B7JMKJ_nSg" label="Etat_de_la_commande" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9NgZuEfG6B7JMKJ_nSg" label="Date_de_commande" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9NwZuEfG6B7JMKJ_nSg" label="Note_du_client" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9OAZuEfG6B7JMKJ_nSg" label="Prenom__Facturation" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9OQZuEfG6B7JMKJ_nSg" label="NOM_DE_FAMILLE__FACTURATION" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9OgZuEfG6B7JMKJ_nSg" label="Societe__Facturation" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9OwZuEfG6B7JMKJ_nSg" label="Adresse_1___2__Facturation" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9PAZuEfG6B7JMKJ_nSg" label="Ville__Facturation" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9PQZuEfG6B7JMKJ_nSg" label="Code_de_l_etat__Facturation" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9PgZuEfG6B7JMKJ_nSg" label="Code_postal__Facturation" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9PwZuEfG6B7JMKJ_nSg" label="Code_du_pays__Facturation" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9QAZuEfG6B7JMKJ_nSg" label="Prenom__Livraison" length="255" precision="5" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9QQZuEfG6B7JMKJ_nSg" label="NOM_DE_FAMILLE__LIVRAISON" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9QgZuEfG6B7JMKJ_nSg" label="Adresse_1___2__Livraison" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9QwZuEfG6B7JMKJ_nSg" label="Ville__Livraison" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9RAZuEfG6B7JMKJ_nSg" label="Code_de_l_etat__Livraison" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9RQZuEfG6B7JMKJ_nSg" label="Code_postal__Livraison" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9RgZuEfG6B7JMKJ_nSg" label="Code_du_pays__Livraison" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9RwZuEfG6B7JMKJ_nSg" label="Titre_de_la_methode_de_paiement" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9SAZuEfG6B7JMKJ_nSg" label="Montant_de_la_remise_panier" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9SQZuEfG6B7JMKJ_nSg" label="Cart_Discount_Amount_inc__tax" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9SgZuEfG6B7JMKJ_nSg" label="Sous_total_de_la_commande" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9SwZuEfG6B7JMKJ_nSg" label="Titre_de_la_methode_de_livraison" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9TAZuEfG6B7JMKJ_nSg" label="Montant_de_la_livraison" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9TQZuEfG6B7JMKJ_nSg" label="Montant_du_remboursement_de_la_commande" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9TgZuEfG6B7JMKJ_nSg" label="Montant_total_de_la_commande" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9TwZuEfG6B7JMKJ_nSg" label="Montant_total_de_la_taxe" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9UAZuEfG6B7JMKJ_nSg" label="UGS" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9UQZuEfG6B7JMKJ_nSg" label="Article" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9UgZuEfG6B7JMKJ_nSg" label="Nom_de_l_element" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9UwZuEfG6B7JMKJ_nSg" label="Quantite____Remboursement" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_sCF9VAZuEfG6B7JMKJ_nSg" label="Prix_du_produit" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

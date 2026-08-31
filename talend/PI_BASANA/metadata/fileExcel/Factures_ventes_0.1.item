@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_EQ2nEC1aEfGvIeSYTSvkJg" name="Factures_ventes" dataPackage="_EQ2nES1aEfGvIeSYTSvkJg" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/EXTRACTIONS/facture_ventes_finals.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Destination_Excel" firstColumn="1" thousandSeparator="','" decimalSeparator="'.'" advancedSpearator="true" sheetList="Destination_Excel:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_EQ2nES1aEfGvIeSYTSvkJg" name="default" dataManager="_EQ2nEC1aEfGvIeSYTSvkJg">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_EQ2nEi1aEfGvIeSYTSvkJg" id="_LOEGQC1ZEfGvIeSYTSvkJg" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nEy1aEfGvIeSYTSvkJg" label="Reference" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nFC1aEfGvIeSYTSvkJg" label="Description" length="500" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nFS1aEfGvIeSYTSvkJg" label="PU_HT" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nFi1aEfGvIeSYTSvkJg" label="Quantite" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nFy1aEfGvIeSYTSvkJg" label="Prix_Total_HT" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nGC1aEfGvIeSYTSvkJg" label="Numero_Facture" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nGS1aEfGvIeSYTSvkJg" label="id_Client" length="255" talendType="id_Character" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nGi1aEfGvIeSYTSvkJg" label="Date" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nGy1aEfGvIeSYTSvkJg" label="Client_Nom" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nHC1aEfGvIeSYTSvkJg" label="Matricule_Fiscal" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nHS1aEfGvIeSYTSvkJg" label="Adresse" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_EQ2nHi1aEfGvIeSYTSvkJg" label="TVA" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

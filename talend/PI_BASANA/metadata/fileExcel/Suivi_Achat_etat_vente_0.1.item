@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_H2N4oAKDEfG_xrfRsh75Og" name="Suivi_Achat_etat_vente" dataPackage="_H2PGwAKDEfG_xrfRsh75Og" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/etat achats ventes 2023-2024.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="6" FirstLineCaption="true" SheetName="Suivi Des Achats" firstColumn="2" lastColumn="21" thousandSeparator="','" decimalSeparator="'.'" sheetList="Suivi Des Achats:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+    <sheetColumns>M</sheetColumns>
+    <sheetColumns>N</sheetColumns>
+    <sheetColumns>O</sheetColumns>
+    <sheetColumns>P</sheetColumns>
+    <sheetColumns>Q</sheetColumns>
+    <sheetColumns>R</sheetColumns>
+    <sheetColumns>S</sheetColumns>
+    <sheetColumns>T</sheetColumns>
+    <sheetColumns>U</sheetColumns>
+    <sheetColumns>V</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_H2PGwAKDEfG_xrfRsh75Og" name="default" dataManager="_H2N4oAKDEfG_xrfRsh75Og">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_H2PGwQKDEfG_xrfRsh75Og" id="_l6bIkAKCEfG_xrfRsh75Og" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2PGwgKDEfG_xrfRsh75Og" label="Societe" length="26" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU4AKDEfG_xrfRsh75Og" label="Nom_du_Fournisseur" length="19" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU4QKDEfG_xrfRsh75Og" label="N_Facture" length="10" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU4gKDEfG_xrfRsh75Og" label="Date_de_facture" length="28" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU4wKDEfG_xrfRsh75Og" label="Montant_HT" length="10" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU5AKDEfG_xrfRsh75Og" label="Taux_de_TVA" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU5QKDEfG_xrfRsh75Og" label="Timbre" length="10" precision="8" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU5gKDEfG_xrfRsh75Og" label="Montant_de_la_TVA" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU5wKDEfG_xrfRsh75Og" label="FODEC" length="10" precision="9" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU6AKDEfG_xrfRsh75Og" label="Montant_TTC" length="12" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU6QKDEfG_xrfRsh75Og" label="Retenue" length="12" precision="11" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU6gKDEfG_xrfRsh75Og" label="Versements_effectues_par_SOUGUI" length="18" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU6wKDEfG_xrfRsh75Og" label="Reste_du" length="19" precision="15" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU7AKDEfG_xrfRsh75Og" label="Action_a_effectuer" length="15" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU7QKDEfG_xrfRsh75Og" label="Date_de_paiement_total_de_la_facture" length="28" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU7gKDEfG_xrfRsh75Og" label="mode_de_reglement" length="8" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU7wKDEfG_xrfRsh75Og" label="Date_de_la_premiere_relance" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU8AKDEfG_xrfRsh75Og" label="Date_de_la_deuxieme_relance" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU8QKDEfG_xrfRsh75Og" label="Penalite_et_majoration_de_paiement" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_H2QU8gKDEfG_xrfRsh75Og" label="Commentaire" length="41" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

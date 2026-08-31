@@ -1,0 +1,8 @@
+artifact_location: file:///home/sana/projet_mlops/mlruns/665474434747929600
+creation_time: 1777649075498
+experiment_id: '665474434747929600'
+last_update_time: 1777649075498
+lifecycle_stage: active
+name: classification-fidelite
+trace_location: null
+workspace: default

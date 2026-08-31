@@ -1,0 +1,46 @@
+package routines;
+
+import java.util.zip.CRC32;
+import java.nio.charset.StandardCharsets;
+
+public class SKUGenerator {
+    
+    /**
+     * generateSKU: Génère un SKU basé sur CRC32 du nom produit
+     */
+    public static String generateSKU(String productName) {
+        if (productName == null || productName.trim().isEmpty()) {
+            return "";
+        }
+
+        String clean = productName.trim().toUpperCase();
+
+        // Calcul CRC32
+        CRC32 crc = new CRC32();
+        crc.update(clean.getBytes(StandardCharsets.UTF_8));
+        long checksum = crc.getValue();
+
+        // Conversion en HEX (plus court et lisible)
+        String crcHex = Long.toHexString(checksum).toUpperCase();
+
+        return "SKU-" + crcHex;
+    }
+
+    /**
+     * generateSKUWithCategory: SKU avec catégorie + CRC32
+     */
+    public static String generateSKUWithCategory(String category, String variant) {
+        String base = (category == null ? "" : category) + "-" + (variant == null ? "" : variant);
+        
+        CRC32 crc = new CRC32();
+        crc.update(base.getBytes(StandardCharsets.UTF_8));
+        long checksum = crc.getValue();
+
+        String crcHex = Long.toHexString(checksum).toUpperCase();
+
+        String catCode = category != null && category.length() >= 3 ? 
+            category.substring(0, 3).toUpperCase() : "PRD";
+
+        return catCode + "-" + crcHex;
+    }
+}

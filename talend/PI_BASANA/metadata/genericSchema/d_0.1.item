@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
+  <TalendMetadata:GenericSchemaConnection xmi:id="_ZgBt4C73EfGAerCbDFEvhw" comment="connectionComment" label="connectionLabel" dataPackage="_ZgBt4S73EfGAerCbDFEvhw"/>
+  <TalendMetadata:GenericPackage xmi:id="_ZgBt4S73EfGAerCbDFEvhw" dataManager="_ZgBt4C73EfGAerCbDFEvhw">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_ZgBt4i73EfGAerCbDFEvhw" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt4y73EfGAerCbDFEvhw" name="Client_PK" id="709" label="Client_PK" length="255" precision="-1" sourceType="" talendType="id_Integer" key="true" nullable="false">
+        <initialValue xmi:id="_ZgBt5C73EfGAerCbDFEvhw"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt5S73EfGAerCbDFEvhw" name="Code_client" id="710" label="Code_client" length="255" precision="-1" sourceType="" talendType="id_String">
+        <initialValue xmi:id="_ZgBt5i73EfGAerCbDFEvhw"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt5y73EfGAerCbDFEvhw" name="Nom_client" id="711" label="Nom_client" length="255" precision="-1" sourceType="" talendType="id_String">
+        <initialValue xmi:id="_ZgBt6C73EfGAerCbDFEvhw"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt6S73EfGAerCbDFEvhw" name="Prenom_client" id="712" label="Prenom_client" length="255" precision="-1" sourceType="" talendType="id_String">
+        <initialValue xmi:id="_ZgBt6i73EfGAerCbDFEvhw"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt6y73EfGAerCbDFEvhw" name="Ville" id="713" label="Ville" length="255" precision="-1" sourceType="" talendType="id_String">
+        <initialValue xmi:id="_ZgBt7C73EfGAerCbDFEvhw"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt7S73EfGAerCbDFEvhw" name="Type_client" id="714" label="Type_client" length="255" precision="-1" sourceType="" talendType="id_String">
+        <initialValue xmi:id="_ZgBt7i73EfGAerCbDFEvhw"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_ZgBt7y73EfGAerCbDFEvhw" name="Adresse_client" id="715" label="Adresse_client" length="255" precision="-1" sourceType="" talendType="id_String">
+        <initialValue xmi:id="_ZgBt8C73EfGAerCbDFEvhw"/>
+      </feature>
+    </ownedElement>
+  </TalendMetadata:GenericPackage>
+</xmi:XMI>

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/sana/projet_mlops/mlruns/509722698013792984/17d4bf037de9481ea63479cc949a07e9/artifacts
+end_time: 1777649080037
+entry_point_name: ''
+experiment_id: '509722698013792984'
+lifecycle_stage: active
+run_id: 17d4bf037de9481ea63479cc949a07e9
+run_name: randomforest-run1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777649077596
+status: 3
+tags: []
+user_id: sana

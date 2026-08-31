@@ -1,0 +1,29 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+venv/
+.venv/
+env/
+*.env
+# --- Jupyter ---
+.ipynb_checkpoints/
+# --- Node / Angular (webapp) ---
+webapp/node_modules/
+webapp/dist/
+webapp/.angular/
+npm-debug.log*
+# --- MLflow ---
+mlflow/mlruns/**/artifacts/
+# --- Talend ---
+talend/PI_BASANA/**/*.log
+talend/PI_BASANA/.settings/
+talend/PI_BASANA/recycle_bin.index
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# --- Docker ---
+*.log

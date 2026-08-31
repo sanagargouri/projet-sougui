@@ -1,0 +1,112 @@
+package routines;
+
+import java.util.zip.CRC32;
+
+public class ClientKeyGenerator {
+    
+    public static String generateClientKeyFromRow(Object row) {
+        try {
+            StringBuilder sb = new StringBuilder();
+            
+            // Utiliser la réflexion pour accéder aux champs
+            sb.append(getFieldValue(row, "Prenom__Facturation", "Prenom__Livraison", true)).append("|");
+            sb.append(getFieldValue(row, "NOM_DE_FAMILLE__FACTURATION", "NOM_DE_FAMILLE__LIVRAISON", true)).append("|");
+            sb.append(getFieldValue(row, "Adresse_1___2__Facturation", "Adresse_1___2__Livraison", true)).append("|");
+            sb.append(getFieldValue(row, "Ville__Facturation", "Ville__Livraison", true)).append("|");
+            sb.append(getFieldValue(row, "Code_postal__Facturation", "Code_postal__Livraison", false)).append("|");
+            sb.append(getFieldValue(row, "Code_du_pays__Facturation", "Code_du_pays__Livraison", true));
+            
+            String cleaned = cleanString(sb.toString());
+            
+            CRC32 crc = new CRC32();
+            crc.update(cleaned.getBytes());
+            long hash = crc.getValue();
+            
+            return "CL_" + String.format("%08X", hash);
+            
+        } catch (Exception e) {
+            return "CL_INCONNU";
+        }
+    }
+    
+    public static String generateKey(
+            String prenomFact,
+            String prenomLiv,
+            String nomFact,
+            String nomLiv,
+            String adrFact,
+            String adrLiv,
+            String villeFact,
+            String villeLiv,
+            String cpFact,
+            String cpLiv,
+            String paysFact,
+            String paysLiv) {
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(getSafeValue(prenomFact, prenomLiv, true)).append("|");
+        sb.append(getSafeValue(nomFact, nomLiv, true)).append("|");
+        sb.append(getSafeValue(adrFact, adrLiv, true)).append("|");
+        sb.append(getSafeValue(villeFact, villeLiv, true)).append("|");
+        sb.append(getSafeValue(cpFact, cpLiv, false)).append("|");
+        sb.append(getSafeValue(paysFact, paysLiv, true));
+        
+        String cleaned = cleanString(sb.toString());
+        
+        CRC32 crc = new CRC32();
+        crc.update(cleaned.getBytes());
+        long hash = crc.getValue();
+        
+        return "CL_" + String.format("%08X", hash);
+    }
+    
+    private static String getSafeValue(String fact, String liv, boolean toUpper) {
+        String val = fact != null ? fact : liv;
+        if (val == null) return "";
+        val = val.trim();
+        if (val.isEmpty()) return "";
+        return toUpper ? val.toUpperCase() : val;
+    }
+    
+    private static String getFieldValue(Object obj, String fieldName1, String fieldName2, boolean toUpper) {
+        try {
+            java.lang.reflect.Field field1 = obj.getClass().getDeclaredField(fieldName1);
+            field1.setAccessible(true);
+            Object value1 = field1.get(obj);
+            if (value1 != null && !value1.toString().trim().isEmpty()) {
+                String val = value1.toString().trim();
+                return toUpper ? val.toUpperCase() : val;
+            }
+            
+            java.lang.reflect.Field field2 = obj.getClass().getDeclaredField(fieldName2);
+            field2.setAccessible(true);
+            Object value2 = field2.get(obj);
+            if (value2 != null && !value2.toString().trim().isEmpty()) {
+                String val = value2.toString().trim();
+                return toUpper ? val.toUpperCase() : val;
+            }
+        } catch (Exception e) {
+            // Ignorer
+        }
+        return "";
+    }
+    
+    private static String cleanString(String input) {
+        if (input == null) return "";
+        String cleaned = input.trim().toUpperCase();
+        cleaned = cleaned.replaceAll("[ÀÁÂÃÄÅ]", "A")
+                         .replaceAll("[àáâãäå]", "A")
+                         .replaceAll("[ÈÉÊË]", "E")
+                         .replaceAll("[èéêë]", "E")
+                         .replaceAll("[ÌÍÎÏ]", "I")
+                         .replaceAll("[ìíîï]", "I")
+                         .replaceAll("[ÒÓÔÕÖ]", "O")
+                         .replaceAll("[òóôõö]", "O")
+                         .replaceAll("[ÙÚÛÜ]", "U")
+                         .replaceAll("[ùúûü]", "U")
+                         .replaceAll("[Çç]", "C")
+                         .replaceAll("[^A-Z0-9]", "");
+        return cleaned;
+    }
+}

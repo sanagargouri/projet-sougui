@@ -1,0 +1,94 @@
+<div class="login-page">
+
+  <!-- LEFT — Form -->
+  <div class="login-side">
+    <div class="login-card">
+
+      <div class="login-header">
+        <img src="assets/logo.jpg" alt="Sougui" class="login-logo"/>
+        <div class="header-text">
+          <h2 *ngIf="view === 'login'">Bon retour</h2>
+          <h2 *ngIf="view === 'forgot'">Mot de passe oublié</h2>
+          <h2 *ngIf="view === 'reset'">Réinitialisation</h2>
+          <p *ngIf="view === 'login'">Connectez-vous à votre espace Sougui</p>
+          <p *ngIf="view === 'forgot'">Recevez un code par email</p>
+          <p *ngIf="view === 'reset'">Entrez le code et votre nouveau mot de passe</p>
+        </div>
+      </div>
+
+      <div class="success-msg" *ngIf="success">✅ {{ success }}</div>
+
+      <!-- LOGIN -->
+      <div class="login-form" *ngIf="view === 'login'">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="loginEmail" placeholder="votre@email.com" (keyup.enter)="login()"/>
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <div class="password-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="loginPassword" placeholder="••••••••" (keyup.enter)="login()"/>
+            <button class="toggle-pwd" (click)="showPassword = !showPassword">{{ showPassword ? '🙈' : '👁️' }}</button>
+          </div>
+        </div>
+        <div class="error-msg" *ngIf="error">⚠️ {{ error }}</div>
+        <button class="btn-login" (click)="login()" [disabled]="loading">
+          <span *ngIf="!loading">Se connecter</span>
+          <span *ngIf="loading">Connexion...</span>
+        </button>
+        <div class="login-links">
+          <button class="link-btn" (click)="goTo('forgot')">Mot de passe oublié ?</button>
+        </div>
+      </div>
+
+      <!-- FORGOT -->
+      <div class="login-form" *ngIf="view === 'forgot'">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="forgotEmail" placeholder="votre@email.com" (keyup.enter)="sendResetCode()"/>
+        </div>
+        <div class="error-msg" *ngIf="error">⚠️ {{ error }}</div>
+        <button class="btn-login" (click)="sendResetCode()" [disabled]="loading">
+          <span *ngIf="!loading">Envoyer le code</span>
+          <span *ngIf="loading">Envoi...</span>
+        </button>
+        <div class="login-links">
+          <button class="link-btn" (click)="goTo('login')">← Retour à la connexion</button>
+        </div>
+      </div>
+
+      <!-- RESET -->
+      <div class="login-form" *ngIf="view === 'reset'">
+        <div class="form-group">
+          <label>Code de vérification</label>
+          <input type="text" [(ngModel)]="resetCode" placeholder="Code à 6 chiffres" maxlength="6" (keyup.enter)="resetPasswordSubmit()"/>
+        </div>
+        <div class="form-group">
+          <label>Nouveau mot de passe</label>
+          <input type="password" [(ngModel)]="resetPassword" placeholder="Minimum 6 caractères" (keyup.enter)="resetPasswordSubmit()"/>
+        </div>
+        <div class="form-group">
+          <label>Confirmer</label>
+          <input type="password" [(ngModel)]="resetConfirm" placeholder="Retapez le mot de passe" (keyup.enter)="resetPasswordSubmit()"/>
+        </div>
+        <div class="error-msg" *ngIf="error">⚠️ {{ error }}</div>
+        <button class="btn-login" (click)="resetPasswordSubmit()" [disabled]="loading">
+          <span *ngIf="!loading">Réinitialiser</span>
+          <span *ngIf="loading">Réinitialisation...</span>
+        </button>
+        <div class="login-links">
+          <button class="link-btn" (click)="goTo('forgot')">← Renvoyer un code</button>
+          <button class="link-btn" (click)="goTo('login')">← Connexion</button>
+        </div>
+      </div>
+
+      <div class="login-footer">Plateforme IA · Sougui</div>
+    </div>
+  </div>
+
+  <!-- RIGHT — Image -->
+  <div class="login-image">
+    <img src="assets/moroccan-zellige-tile-painting.jpg" alt="Artisanat Tunisien"/>
+  </div>
+
+</div>

@@ -1,0 +1,42 @@
+package routines;
+
+import java.util.zip.CRC32;
+
+public class GenerateClientCodeCRC32 {
+    
+    public static String generateCode(String nom, String prenom, String ville, String adresse) {
+        
+        // Concaténer nom + prénom + ville + adresse
+        String fullText = (nom != null ? nom : "") 
+                        + (prenom != null ? prenom : "") 
+                        + (ville != null ? ville : "") 
+                        + (adresse != null ? adresse : "");
+        
+        if (fullText.trim().isEmpty()) {
+            return "CL_INCONNU";
+        }
+        
+        // Nettoyer : majuscules, sans accents, sans caractères spéciaux
+        String cleaned = fullText.trim().toUpperCase();
+        cleaned = cleaned.replaceAll("[ÀÁÂÃÄÅ]", "A")
+                        .replaceAll("[àáâãäå]", "A")
+                        .replaceAll("[ÈÉÊË]", "E")
+                        .replaceAll("[èéêë]", "E")
+                        .replaceAll("[ÌÍÎÏ]", "I")
+                        .replaceAll("[ìíîï]", "I")
+                        .replaceAll("[ÒÓÔÕÖ]", "O")
+                        .replaceAll("[òóôõö]", "O")
+                        .replaceAll("[ÙÚÛÜ]", "U")
+                        .replaceAll("[ùúûü]", "U")
+                        .replaceAll("[Çç]", "C")
+                        .replaceAll("[^A-Z0-9]", "");
+        
+        // Calculer CRC32
+        CRC32 crc = new CRC32();
+        crc.update(cleaned.getBytes());
+        long hash = crc.getValue();
+        
+        // Retourner avec préfixe CL + CRC32
+        return "CL_" + String.format("%08X", hash);
+    }
+}

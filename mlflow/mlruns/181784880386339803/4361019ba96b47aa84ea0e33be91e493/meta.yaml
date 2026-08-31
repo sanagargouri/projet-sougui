@@ -1,0 +1,14 @@
+artifact_uri: file:///home/sana/projet_mlops/mlruns/181784880386339803/4361019ba96b47aa84ea0e33be91e493/artifacts
+end_time: 1777650308654
+entry_point_name: ''
+experiment_id: '181784880386339803'
+lifecycle_stage: active
+run_id: 4361019ba96b47aa84ea0e33be91e493
+run_name: agglomerative-run2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777650306509
+status: 3
+tags: []
+user_id: sana

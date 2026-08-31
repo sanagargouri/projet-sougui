@@ -1,0 +1,625 @@
+<app-login *ngIf="!isLoggedIn" [onLogin]="onLogin"></app-login>
+
+<div class="app-container" *ngIf="isLoggedIn">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <img src="assets/logo.jpg" alt="Sougui" class="logo-img"/>
+        <div class="logo-text-block">
+          <span class="logo-text">SOUGUI</span>
+          <span class="logo-sub">Intelligence Artificielle &amp; Décisionnel</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-actions">
+          <button class="btn-history" (click)="showHistory = !showHistory">
+            Historique
+            <span class="badge-count" *ngIf="history.length > 0">{{ history.length }}</span>
+          </button>
+          <button class="btn-export" (click)="exportPDF()" *ngIf="history.length > 0">
+            Export PDF
+          </button>
+        </div>
+        <div class="user-info">
+          <span class="user-badge">{{ currentUser?.username }}</span>
+          <span class="role-indicator">{{ currentUser?.role }}</span>
+          <button class="btn-logout" (click)="logout()">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <nav class="tabs">
+    <button [class.active]="activeTab==='home'" (click)="setTab('home')">Accueil</button>
+    <button *ngIf="canAccess('classification')" [class.active]="activeTab==='classification'" (click)="setTab('classification')">Fidélité Client</button>
+    <button *ngIf="canAccess('regression')" [class.active]="activeTab==='regression'" (click)="setTab('regression')">Valeur Commande</button>
+    <button *ngIf="canAccess('clustering')" [class.active]="activeTab==='clustering'" (click)="setTab('clustering')">Profil Client</button>
+    <button *ngIf="canAccess('timeseries')" [class.active]="activeTab==='timeseries'" (click)="setTab('timeseries')">Prévision CA</button>
+    <button *ngIf="canAccess('dashboard')" [class.active]="activeTab==='dashboard'" (click)="setTab('dashboard')">Dashboard</button>
+    <button *ngIf="canAccess('etl')" [class.active]="activeTab==='etl'" (click)="setTab('etl')">ETL Talend</button>
+    <button *ngIf="canAccess('monitoring')" [class.active]="activeTab==='monitoring'" (click)="setTab('monitoring')">Monitoring</button>
+    <button *ngIf="canAccess('users')" [class.active]="activeTab==='users'" (click)="setTab('users')">Gestion Users</button>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- HISTORIQUE -->
+    <div class="history-panel" *ngIf="showHistory">
+      <div class="history-header">
+        <h3>Historique des analyses</h3>
+        <button class="btn-clear" (click)="clearHistory()">Vider</button>
+      </div>
+      <div class="history-empty" *ngIf="history.length === 0">Aucune analyse effectuée.</div>
+      <table class="history-table" *ngIf="history.length > 0">
+        <thead>
+          <tr><th>Date</th><th>Analyse</th><th>Résultat</th><th>Confiance</th><th>Durée</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let h of history">
+            <td>{{ h.date }}</td>
+            <td>{{ h.type }}</td>
+            <td><strong>{{ h.result }}</strong></td>
+            <td>{{ h.confidence !== null && h.confidence !== undefined ? (h.confidence * 100).toFixed(0) + '%' : '—' }}</td>
+            <td>{{ h.duration }} ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HOME -->
+    <div *ngIf="activeTab==='home'" class="home-container">
+      <div class="cover-section">
+        <img src="assets/cover.jpg" alt="Sougui Artisanat" class="cover-img"/>
+        <div class="cover-overlay">
+          <div class="cover-content">
+            <div class="cover-badge">SOUGUI · Plateforme IA</div>
+            <h1 class="cover-title">Where timeless craftmanship<br/>meets data-driven decisions.</h1>
+            <p class="cover-quote">Empowering Sougui to grow smarter, stronger, and further.</p>
+            <button class="btn-start" (click)="setTab('classification')">
+              Commencer l'analyse →
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="home-cards">
+        <div class="home-card card-1" *ngIf="canAccess('classification')" (click)="setTab('classification')">
+          <div class="home-card-title">Fidélité Client</div>
+          <div class="home-card-desc">Prédisez si un client restera fidèle à Sougui</div>
+        </div>
+        <div class="home-card card-2" *ngIf="canAccess('regression')" (click)="setTab('regression')">
+          <div class="home-card-title">Valeur Commande</div>
+          <div class="home-card-desc">Estimez le montant d'une commande avant validation</div>
+        </div>
+        <div class="home-card card-3" *ngIf="canAccess('clustering')" (click)="setTab('clustering')">
+          <div class="home-card-title">Profil Client</div>
+          <div class="home-card-desc">Identifiez le segment commercial de vos clients</div>
+        </div>
+        <div class="home-card card-4" *ngIf="canAccess('timeseries')" (click)="setTab('timeseries')">
+          <div class="home-card-title">Prévision CA</div>
+          <div class="home-card-desc">Anticipez le chiffre d'affaires du mois prochain</div>
+        </div>
+        <div class="home-card card-5" *ngIf="canAccess('dashboard')" (click)="setTab('dashboard')">
+          <div class="home-card-title">Dashboard</div>
+          <div class="home-card-desc">Explorez vos données avec Power BI</div>
+        </div>
+        <div class="home-card card-1" *ngIf="canAccess('etl')" (click)="setTab('etl')">
+          <div class="home-card-title">ETL Talend</div>
+          <div class="home-card-desc">Lancez les jobs d'intégration de données</div>
+        </div>
+        <div class="home-card card-2" *ngIf="canAccess('monitoring')" (click)="setTab('monitoring')">
+          <div class="home-card-title">Monitoring</div>
+          <div class="home-card-desc">Surveillez les performances avec Grafana & Kibana</div>
+        </div>
+        <div class="home-card card-3" *ngIf="canAccess('users')" (click)="setTab('users')">
+          <div class="home-card-title">Gestion Users</div>
+          <div class="home-card-desc">Gérez les comptes et les rôles utilisateurs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD POWER BI -->
+    <div *ngIf="activeTab==='dashboard'" class="pbi-container">
+      <div class="pbi-nav">
+        <button *ngFor="let p of pbiPages"
+          [class.active]="activePbiPage === p.id"
+          (click)="setPbiPage(p)">{{ p.label }}</button>
+      </div>
+      <div class="pbi-frame-wrapper">
+        <iframe [src]="pbiUrl" class="pbi-frame" frameborder="0" allowFullScreen="true"></iframe>
+      </div>
+    </div>
+
+    <!-- ETL TALEND -->
+    <div *ngIf="activeTab==='etl'" class="etl-container">
+      <div class="etl-card">
+        <h2>ETL Talend</h2>
+        <p class="etl-desc">Lancez les jobs Talend pour alimenter l'entrepôt de données. Les jobs s'exécutent dans l'ordre : dimensions puis faits.</p>
+        <button class="btn-etl" (click)="runEtl()" [disabled]="etlLoading">
+          <span *ngIf="!etlLoading">Lancer l'ETL</span>
+          <span *ngIf="etlLoading"><span class="spinner"></span> Exécution en cours...</span>
+        </button>
+        <div class="etl-result success" *ngIf="etlResult && !etlError">
+          ✅ ETL terminé avec succès
+        </div>
+        <div class="etl-result error" *ngIf="etlError">
+          ⚠️ {{ etlError }}
+        </div>
+      </div>
+    </div>
+
+    <!-- MONITORING -->
+    <div *ngIf="activeTab==='monitoring'" class="monitoring-container">
+      <div class="monitoring-tabs">
+        <button [class.active]="activeMonitor==='grafana'" (click)="activeMonitor='grafana'">Grafana</button>
+        <button [class.active]="activeMonitor==='kibana'" (click)="activeMonitor='kibana'">Kibana</button>
+      </div>
+      <div class="monitoring-frame-wrapper">
+        <iframe *ngIf="activeMonitor==='grafana'" [src]="grafanaUrl" class="monitoring-frame" frameborder="0"></iframe>
+        <iframe *ngIf="activeMonitor==='kibana'" [src]="kibanaUrl" class="monitoring-frame" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <!-- GESTION USERS -->
+    <div *ngIf="activeTab==='users'" class="users-container">
+      <div class="users-header">
+        <h2>Gestion des utilisateurs</h2>
+        <button class="btn-add-user" (click)="showAddUser = !showAddUser">
+          {{ showAddUser ? '✕ Annuler' : '+ Nouveau compte' }}
+        </button>
+      </div>
+
+      <div class="add-user-form" *ngIf="showAddUser">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom d'utilisateur</label>
+            <input type="text" [(ngModel)]="newUser.username" placeholder="Identifiant"/>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="newUser.email" placeholder="email@exemple.com"/>
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input type="password" [(ngModel)]="newUser.password" placeholder="Minimum 6 caractères"/>
+          </div>
+          <div class="form-group">
+            <label>Rôle</label>
+            <select [(ngModel)]="newUser.role">
+              <option value="admin">Admin</option>
+              <option value="marketing">Marketing</option>
+              <option value="technique">Technique</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-create-user" (click)="createUser()">Créer le compte</button>
+        <div class="user-msg success" *ngIf="userSuccess">✅ {{ userSuccess }}</div>
+        <div class="user-msg error" *ngIf="userError">⚠️ {{ userError }}</div>
+      </div>
+
+      <table class="users-table">
+        <thead>
+          <tr><th>ID</th><th>Utilisateur</th><th>Email</th><th>Rôle</th><th>Créé le</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of usersList">
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.email }}</td>
+            <td><span class="role-badge" [ngClass]="'role-' + u.role">{{ u.role }}</span></td>
+            <td>{{ u.created_at }}</td>
+            <td>
+              <button class="btn-delete-user" (click)="deleteUser(u.id)" *ngIf="u.username !== currentUser?.username">Désactiver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CLASSIFICATION -->
+    <div *ngIf="activeTab==='classification'" class="card-split">
+      <div class="split-form">
+        <div class="card-header">
+          <span class="card-icon">🎯</span>
+          <div>
+            <h2>Ce client va-t-il rester fidèle ?</h2>
+            <p class="desc">Entrez les informations du client pour obtenir une prédiction de fidélité.</p>
+          </div>
+        </div>
+        <div class="form-grid-vertical">
+          <div class="form-group">
+            <label>Type de client</label>
+            <select [(ngModel)]="classif.Type_client" (ngModelChange)="onTypeClientChange()">
+              <option value="B2C">Particulier (B2C)</option>
+              <option value="B2B">Entreprise (B2B)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ville</label>
+            <select [(ngModel)]="classif.ville_client">
+              <option *ngFor="let v of villes" [value]="v">{{ v }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Jours depuis le dernier achat</label>
+            <input type="number" [(ngModel)]="classif.recence_jours" placeholder="ex: 30"/>
+          </div>
+          <div class="form-group">
+            <label>Montant moyen par commande (TND)</label>
+            <input type="number" [(ngModel)]="classif.panier_moyen" placeholder="ex: 250"/>
+          </div>
+          <div class="form-group">
+            <label>Chiffre d'affaires total (TND)</label>
+            <input type="number" [(ngModel)]="classif.montant_total" placeholder="ex: 3000"/>
+          </div>
+          <div class="form-group">
+            <label>CA en haute saison (TND)</label>
+            <input type="number" [(ngModel)]="classif.ca_saison_haute" placeholder="ex: 1200"/>
+          </div>
+          <div class="form-group" *ngIf="classif.Type_client === 'B2C'">
+            <label>Nombre de commandes</label>
+            <input type="number" [(ngModel)]="classif.nb_commandes_b2c" placeholder="ex: 5"/>
+          </div>
+          <div class="form-group" *ngIf="classif.Type_client === 'B2B'">
+            <label>Nombre de factures professionnelles</label>
+            <input type="number" [(ngModel)]="classif.nb_factures_b2b" placeholder="ex: 3"/>
+          </div>
+          <div class="form-group">
+            <label>Mode de paiement habituel</label>
+            <select [(ngModel)]="classif.paiement_dominant">
+              <option value="carte">Carte bancaire</option>
+              <option value="especes">Espèces</option>
+              <option value="virement">Virement</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Canal de vente principal</label>
+            <select [(ngModel)]="classif.type_vente_dominant">
+              <option value="en_ligne">En ligne</option>
+              <option value="magasin">En magasin</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-image">
+        <img src="assets/clients.jpg" alt="Client Sougui" class="side-img"/>
+        <div class="side-quote" style="top:0; bottom:auto; background:linear-gradient(to bottom, rgba(13,31,78,0.95), transparent); padding:24px 24px 48px;">
+          <p>"Every customer tells a story — data helps us listen better and craft experiences as timeless as our artistry."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGRESSION -->
+    <div *ngIf="activeTab==='regression'" class="card-split">
+      <div class="split-image">
+        <img src="assets/commandes.jpg" alt="Commandes Sougui" class="side-img"/>
+        <div class="side-quote">
+          <p>"Forecast what customers will spend next, stop reacting, start planning — and stay one step ahead."</p>
+        </div>
+      </div>
+
+      <div class="split-form">
+        <div class="card-header">
+          <span class="card-icon">💰</span>
+          <div>
+            <h2>Quelle sera la valeur de cette commande ?</h2>
+            <p class="desc">Renseignez les détails d'une commande pour estimer son montant total.</p>
+          </div>
+        </div>
+        <div class="form-grid-vertical">
+          <div class="form-group">
+            <label>Quantité de produits commandés</label>
+            <input type="number" [(ngModel)]="regress.Quantite_totale" placeholder="ex: 3"/>
+          </div>
+          <div class="form-group">
+            <label>Prix unitaire moyen (TND)</label>
+            <input type="number" [(ngModel)]="regress.Prix_Unite_moyen" placeholder="ex: 150"/>
+          </div>
+          <div class="form-group">
+            <label>Remise accordée (TND)</label>
+            <input type="number" [(ngModel)]="regress.Montant_Remise" placeholder="ex: 20"/>
+          </div>
+          <div class="form-group">
+            <label>Frais de livraison (TND)</label>
+            <input type="number" [(ngModel)]="regress.Montant_Livraison" placeholder="ex: 7"/>
+          </div>
+          <div class="form-group">
+            <label>Prix catalogue (TND)</label>
+            <input type="number" [(ngModel)]="regress.prix_catalogue" placeholder="ex: 170"/>
+          </div>
+          <div class="form-group">
+            <label>Mois de la commande</label>
+            <select [(ngModel)]="regress.Mois">
+              <option [value]="1">Janvier</option><option [value]="2">Février</option>
+              <option [value]="3">Mars</option><option [value]="4">Avril</option>
+              <option [value]="5">Mai</option><option [value]="6">Juin</option>
+              <option [value]="7">Juillet</option><option [value]="8">Août</option>
+              <option [value]="9">Septembre</option><option [value]="10">Octobre</option>
+              <option [value]="11">Novembre</option><option [value]="12">Décembre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type de client</label>
+            <select [(ngModel)]="regress.Type_client">
+              <option value="Particulier">Particulier (B2C)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ville</label>
+            <select [(ngModel)]="regress.ville_client">
+              <option *ngFor="let v of villesRegress" [value]="v">{{ v }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Catégorie de produit</label>
+            <select [(ngModel)]="regress.categorie">
+              <option value="ART DE LA TABLE">Art de la table</option>
+              <option value="ART DE TABLE">Art de table</option>
+              <option value="ARTICLES EN CUIVRE">Articles en cuivre</option>
+              <option value="ARTISANAT">Artisanat</option>
+              <option value="BOIS D'OLIVIER">Bois d'olivier</option>
+              <option value="CARAFES ET BOUTEILLES">Carafes et bouteilles</option>
+              <option value="COFFRETS CADEAUX">Coffrets cadeaux</option>
+              <option value="COUFFINS & FOUTAS">Couffins & Foutas</option>
+              <option value="CÉRAMIQUES">Céramiques</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Canal de vente</label>
+            <select [(ngModel)]="regress.type_vente">
+              <option value="Site_Web">Site Web</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mode de paiement</label>
+            <select [(ngModel)]="regress.type_paiement">
+              <option value="PAY IN PERSON">Paiement en personne</option>
+              <option value="CASH ON DELIVERY">Paiement à la livraison</option>
+              <option value="WALLET PAYMENT">Portefeuille électronique</option>
+              <option value="PAYMEE">Paymee</option>
+              <option value="AUTRE">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Promotion active ?</label>
+            <select [(ngModel)]="regress.En_Promo">
+              <option [value]="0">Non</option><option [value]="1">Oui</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Période haute saison ?</label>
+            <select [(ngModel)]="regress.est_saison_haute">
+              <option [value]="0">Non</option><option [value]="1">Oui</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Gamme de prix</label>
+            <select [(ngModel)]="regress.classe_prix">
+              <option value="Basse">Bas de gamme</option>
+              <option value="Moyenne">Milieu de gamme</option>
+              <option value="Chère">Haut de gamme</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLUSTERING -->
+    <div *ngIf="activeTab==='clustering'" class="card-split">
+      <div class="split-form">
+        <div class="card-header">
+          <span class="card-icon">👥</span>
+          <div>
+            <h2>À quel profil appartient ce client ?</h2>
+            <p class="desc">Identifiez le segment de votre client pour adapter votre stratégie commerciale.</p>
+          </div>
+        </div>
+        <div class="form-grid-vertical">
+          <div class="form-group">
+            <label>Jours depuis le dernier achat</label>
+            <input type="number" [(ngModel)]="cluster.Recency" placeholder="ex: 30"/>
+          </div>
+          <div class="form-group">
+            <label>Nombre total d'achats</label>
+            <input type="number" [(ngModel)]="cluster.Frequency" placeholder="ex: 8"/>
+          </div>
+          <div class="form-group">
+            <label>CA total généré (TND)</label>
+            <input type="number" [(ngModel)]="cluster.Monetary" placeholder="ex: 3000"/>
+          </div>
+          <div class="form-group">
+            <label>Valeur moyenne par achat (TND)</label>
+            <input type="number" [(ngModel)]="cluster.Avg_Basket" placeholder="ex: 375"/>
+          </div>
+          <div class="form-group">
+            <label>Quantité totale achetée</label>
+            <input type="number" [(ngModel)]="cluster.Total_Quantite" placeholder="ex: 20"/>
+          </div>
+          <div class="form-group">
+            <label>Nb produits différents achetés</label>
+            <input type="number" [(ngModel)]="cluster.Nb_Produits" placeholder="ex: 5"/>
+          </div>
+          <div class="form-group">
+            <label>Total remises obtenues (TND)</label>
+            <input type="number" [(ngModel)]="cluster.Total_Remise" placeholder="ex: 150"/>
+          </div>
+          <div class="form-group">
+            <label>Total remboursements (TND)</label>
+            <input type="number" [(ngModel)]="cluster.Total_Remboursement" placeholder="ex: 0"/>
+          </div>
+          <div class="form-group">
+            <label>Nombre de ventes réalisées</label>
+            <input type="number" [(ngModel)]="cluster.Nb_Ventes" placeholder="ex: 8"/>
+          </div>
+          <div class="form-group">
+            <label>Canal d'achat principal</label>
+            <select [(ngModel)]="cluster.Mode_Vente_Principal">
+              <option value="en_ligne">En ligne</option>
+              <option value="magasin">En magasin</option>
+              <option value="mobile">Mobile</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type de client</label>
+            <select [(ngModel)]="cluster.Is_Entreprise">
+              <option [value]="0">Particulier</option>
+              <option [value]="1">Entreprise</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-image">
+        <img src="assets/clustering.jpg" alt="Profil Client Sougui" class="side-img"/>
+        <div class="side-quote" style="top:0; bottom:auto; background:linear-gradient(to bottom, rgba(13,31,78,0.95), transparent); padding:24px 24px 48px;">
+          <p>"Know your customers before they know themselves — segmentation turns data into strategy."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMESERIES -->
+    <div *ngIf="activeTab==='timeseries'" class="card-split">
+      <div class="split-image">
+        <img src="assets/timeseries.jpg" alt="Prévision CA Sougui" class="side-img"/>
+        <div class="side-quote" style="top:0; bottom:auto; background:linear-gradient(to bottom, rgba(13,31,78,0.95), transparent); padding:24px 24px 48px;">
+          <p>"The best way to predict the future is to measure the past — let data light the way forward."</p>
+        </div>
+      </div>
+
+      <div class="split-form">
+        <div class="card-header">
+          <span class="card-icon">📈</span>
+          <div>
+            <h2>Quel sera le chiffre d'affaires du mois prochain ?</h2>
+            <p class="desc">Entrez les données des 4 derniers mois pour obtenir une prévision automatique.</p>
+          </div>
+        </div>
+        <div class="form-grid-vertical">
+          <div *ngFor="let m of tsMonths; let i = index" class="ts-row">
+            <div class="ts-label">{{ m.label }}</div>
+            <div class="form-grid ts-grid">
+              <div class="form-group">
+                <label>CA (TND)</label>
+                <input type="number" [(ngModel)]="tsMonths[i].CA_Mensuel" placeholder="ex: 45000"/>
+              </div>
+              <div class="form-group">
+                <label>Nb commandes</label>
+                <input type="number" [(ngModel)]="tsMonths[i].Nb_Commandes" placeholder="ex: 90"/>
+              </div>
+              <div class="form-group">
+                <label>Quantité vendue</label>
+                <input type="number" [(ngModel)]="tsMonths[i].Quantite_Mensuelle" placeholder="ex: 340"/>
+              </div>
+              <div class="form-group">
+                <label>Total remises (TND)</label>
+                <input type="number" [(ngModel)]="tsMonths[i].Remise_Totale" placeholder="ex: 1300"/>
+              </div>
+              <div class="form-group">
+                <label>Prix moyen unitaire (TND)</label>
+                <input type="number" [(ngModel)]="tsMonths[i].Prix_Moyen_Unite" placeholder="ex: 130"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREDICT BUTTON -->
+    <div class="predict-section" *ngIf="activeTab !== 'dashboard' && activeTab !== 'home' && activeTab !== 'etl' && activeTab !== 'monitoring' && activeTab !== 'users'">
+      <button class="btn-predict" (click)="predict()" [disabled]="loading">
+        <span *ngIf="!loading">Analyser</span>
+        <span *ngIf="loading"><span class="spinner"></span> Analyse en cours...</span>
+      </button>
+    </div>
+
+    <!-- RESULT -->
+    <div *ngIf="result" class="result-card">
+
+      <ng-container *ngIf="activeTab==='classification'">
+        <div *ngFor="let p of result.predictions">
+          <div class="result-header" [class.positive]="p.prediction===1" [class.negative]="p.prediction===0">
+            <div class="result-icon-big">{{ p.prediction === 1 ? '✅' : '⚠️' }}</div>
+            <div class="result-title-block">
+              <div class="result-title">{{ p.prediction === 1 ? 'Client Fidèle' : 'Client à Risque' }}</div>
+              <div class="result-subtitle">Confiance : {{ animatedConfidence }}%</div>
+            </div>
+          </div>
+          <div class="result-body">
+            <p *ngIf="p.prediction===1">Ce client a <strong>{{ animatedConfidence }}% de chances</strong> de rester fidèle à Sougui.</p>
+            <p *ngIf="p.prediction===0">Ce client a seulement <strong>{{ animatedConfidence }}% de chances</strong> de rester fidèle.</p>
+            <div class="confidence-bar">
+              <div class="confidence-fill"
+                [style.width]="animatedConfidence + '%'"
+                [class.positive]="p.prediction===1"
+                [class.negative]="p.prediction===0"></div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="activeTab==='regression'">
+        <div *ngFor="let p of result.predictions">
+          <div class="result-header positive">
+            <div class="result-icon-big">💰</div>
+            <div class="result-title-block">
+              <div class="result-title">Valeur estimée de la commande</div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="result-amount">{{ animatedMontant | number:'1.0-0' }} <span class="currency">TND</span></div>
+            <p>Le modèle estime que cette commande vaut environ <strong>{{ animatedMontant | number:'1.0-0' }} dinars</strong>.</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="activeTab==='clustering'">
+        <div *ngFor="let p of result.predictions">
+          <div class="result-header positive">
+            <div class="result-icon-big">👥</div>
+            <div class="result-title-block">
+              <div class="result-title">Profil du client identifié</div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="segment-badge">{{ p.Segment_Label }}</div>
+            <p>{{ getSegmentDescription(p.Segment_Label) }}</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="activeTab==='timeseries'">
+        <div *ngFor="let p of result.predictions">
+          <div class="result-header positive">
+            <div class="result-icon-big">📈</div>
+            <div class="result-title-block">
+              <div class="result-title">Prévision CA — {{ p.date }}</div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="result-amount">{{ animatedCA | number:'1.0-0' }} <span class="currency">TND</span></div>
+            <p>Le modèle prévoit un chiffre d'affaires de <strong>{{ animatedCA | number:'1.0-0' }} dinars</strong> pour ce mois.</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="recommendation-box" *ngIf="getRecommendation()">
+        {{ getRecommendation() }}
+      </div>
+
+      <div class="result-meta">
+        <span class="badge-meta">⏱ {{ result.duration_ms }} ms</span>
+        <span class="badge-meta">🤖 {{ result.model }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="error-card">
+      ⚠️ {{ error }}
+    </div>
+
+  </main>
+</div>
+
+<app-chatbot *ngIf="isLoggedIn"></app-chatbot>

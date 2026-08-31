@@ -1,0 +1,10 @@
+artifact_location: file:///home/sana/projet_mlops/mlruns/509722698013792984/models/m-f15f044b011f497999f0f73a9a816551/artifacts
+creation_timestamp: 1777649077618
+experiment_id: '509722698013792984'
+last_updated_timestamp: 1777649080033
+model_id: m-f15f044b011f497999f0f73a9a816551
+model_type: null
+name: model_regression
+source_run_id: 17d4bf037de9481ea63479cc949a07e9
+status: 2
+status_message: null

@@ -1,0 +1,10 @@
+[('prep', ColumnTransformer(transformers=[('num', StandardScaler(),
+                                 Index(['Quantite_totale', 'Prix_Unité_moyen', 'Montant_Remise',
+       'Montant_Livraison', 'a_code_promo', 'prix_catalogue', 'En_Promo',
+       'Annee', 'Mois', 'est_saison_haute', 'remise_pct',
+       'ratio_prix_catalogue'],
+      dtype='object')),
+                                ('cat', OneHotEncoder(handle_unknown='ignore'),
+                                 Index(['Numero_Commande', 'Type_client', 'ville_client', 'canal_produit',
+       'categorie', 'type_vente', 'type_paiement', 'Trimestre', 'Semestre'],
+      dtype='object'))])), ('model', RandomForestRegressor(n_estimators=200, random_state=42))]

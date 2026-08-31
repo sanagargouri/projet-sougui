@@ -1,0 +1,95 @@
+// ============================================================================
+// Routine: GenerateClientCodeDB
+// Description: Génère un code client unique en utilisant une séquence SQL Server
+// ============================================================================
+
+package routines;
+
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class GenerateClientCodeDB {
+    
+    /**
+     * Génère un code client unique en utilisant une séquence SQL Server
+     * @param conn Connexion JDBC active à la base de données
+     * @param nom Nom du client
+     * @param prenom Prénom du client
+     * @param ville Ville du client
+     * @return Code client formaté (ex: MEKWAFTUN_000123)
+     * @throws SQLException Si erreur d'accès à la séquence
+     */
+    public static String generateCode(Connection conn, String nom, String prenom, String ville) 
+            throws SQLException {
+        
+        // 1. Récupérer la prochaine valeur de la séquence
+        int sequence = getNextSequenceValue(conn);
+        
+        // 2. Formater les parties du code
+        String codeNom = formatPart(nom);
+        String codePrenom = formatPart(prenom);
+        String codeVille = formatPart(ville);
+        
+        // 3. Assembler le code client
+        String codeClient = codeNom + codePrenom + codeVille + "_" + String.format("%06d", sequence);
+        
+        return codeClient;
+    }
+    
+    /**
+     * Récupère la prochaine valeur de la séquence SQL Server
+     */
+    private static int getNextSequenceValue(Connection conn) throws SQLException {
+        String sql = "SELECT NEXT VALUE FOR seq_client_code AS next_val";
+        
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            
+            if (rs.next()) {
+                return rs.getInt("next_val");
+            } else {
+                throw new SQLException("Impossible de récupérer la prochaine valeur de séquence");
+            }
+        }
+    }
+    
+    /**
+     * Formate une partie du code client
+     * Prend les 3 premiers caractères alphanumériques, sans accents
+     */
+    private static String formatPart(String value) {
+        // Gérer les valeurs null ou vides
+        if (value == null || value.trim().isEmpty()) {
+            return "XXX";
+        }
+        
+        // Nettoyer et normaliser
+        String cleaned = value.trim().toUpperCase();
+        
+        // Supprimer les accents
+        cleaned = cleaned.replaceAll("[ÀÁÂÃÄÅ]", "A")
+                        .replaceAll("[àáâãäå]", "A")
+                        .replaceAll("[ÈÉÊË]", "E")
+                        .replaceAll("[èéêë]", "E")
+                        .replaceAll("[ÌÍÎÏ]", "I")
+                        .replaceAll("[ìíîï]", "I")
+                        .replaceAll("[ÒÓÔÕÖ]", "O")
+                        .replaceAll("[òóôõö]", "O")
+                        .replaceAll("[ÙÚÛÜ]", "U")
+                        .replaceAll("[ùúûü]", "U")
+                        .replaceAll("[Çç]", "C")
+                        .replaceAll("[^A-Z0-9]", ""); // Garder seulement lettres et chiffres
+        
+        // Prendre 3 caractères ou compléter avec X
+        if (cleaned.length() >= 3) {
+            return cleaned.substring(0, 3);
+        } else if (cleaned.length() > 0) {
+            // Compléter avec des X
+            return cleaned + "XXX".substring(0, 3 - cleaned.length());
+        } else {
+            return "XXX";
+        }
+    }
+}

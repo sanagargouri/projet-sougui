@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Project xmi:id="_APv10AErEfG3f9ET3w9iKg" label="PI_BAsana" description="" language="java" technicalLabel="PI_BASANA" local="true" author="_APv10QErEfG3f9ET3w9iKg" productVersion="Talend Open Studio for Data Integration-8.0.1.20211109_1610" itemsRelationVersion="1.3" bigData="false">
+    <migrationTask xmi:id="_APv3ewErEfG3f9ET3w9iKg" id="org.talend.repository.model.migration.CheckProductVersionMigrationTask" breaks="7.1.0" version="7.1.1"/>
+  </TalendProperties:Project>
+  <TalendProperties:User xmi:id="_APv10QErEfG3f9ET3w9iKg" login="user@talend.com" password="D41D8CD98F00B204E9800998ECF8427E"/>
+</xmi:XMI>

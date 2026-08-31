@@ -1,0 +1,8 @@
+artifact_location: file:///home/sana/projet_mlops/mlruns/181784880386339803
+creation_time: 1777649081267
+experiment_id: '181784880386339803'
+last_update_time: 1777649081267
+lifecycle_stage: active
+name: clustering-segments-clients
+trace_location: null
+workspace: default

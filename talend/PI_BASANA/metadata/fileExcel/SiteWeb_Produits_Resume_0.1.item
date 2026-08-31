@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_1Y3HAQZoEfG6B7JMKJ_nSg" name="SiteWeb_Produits_Resume" dataPackage="_1Y3HAgZoEfG6B7JMKJ_nSg" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/web_site_data/Produits_Sougui-Siteweb.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Resume" firstColumn="1" lastColumn="2" thousandSeparator="','" decimalSeparator="'.'" sheetList="Resume:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_1Y3HAgZoEfG6B7JMKJ_nSg" name="default" dataManager="_1Y3HAQZoEfG6B7JMKJ_nSg">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_1Y3HAwZoEfG6B7JMKJ_nSg" id="_fudQEAZoEfG6B7JMKJ_nSg" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_1Y3HBAZoEfG6B7JMKJ_nSg" label="Indicateur" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_1Y3HBQZoEfG6B7JMKJ_nSg" label="Valeur" length="255" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

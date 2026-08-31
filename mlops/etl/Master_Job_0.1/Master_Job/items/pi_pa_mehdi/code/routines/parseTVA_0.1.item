@@ -1,0 +1,33 @@
+package routines;
+
+public class parseTVA {
+
+    /**
+     * parseTVA: Parse et retourne le taux de TVA sous forme de double.
+     * Gère les formats : "19%", "0%*", "0%", null, vide → défaut 19.0
+     *
+     * {talendTypes} double | Double
+     *
+     * {Category} User Defined
+     *
+     * {param} string("19%") tva : Le taux de TVA sous forme de chaîne (ex: "19%", "0%*", "0%", null)
+     *
+     * {example} parseTVA("19%")  # 19.0
+     * {example} parseTVA("0%*") # 0.0
+     * {example} parseTVA(null)  # 19.0
+     */
+    public static double parseTVA(String tva) {
+        if (tva == null || tva.trim().isEmpty()) {
+            return 19.0;
+        }
+        String cleaned = tva.trim().replace("%", "").replace("*", "").trim();
+        if (cleaned.isEmpty()) {
+            return 19.0;
+        }
+        try {
+            return Double.parseDouble(cleaned);
+        } catch (NumberFormatException e) {
+            return 19.0;
+        }
+    }
+}

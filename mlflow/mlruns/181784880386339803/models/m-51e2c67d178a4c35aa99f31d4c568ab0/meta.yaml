@@ -1,0 +1,10 @@
+artifact_location: file:///home/sana/projet_mlops/mlruns/181784880386339803/models/m-51e2c67d178a4c35aa99f31d4c568ab0/artifacts
+creation_timestamp: 1777649081880
+experiment_id: '181784880386339803'
+last_updated_timestamp: 1777649083956
+model_id: m-51e2c67d178a4c35aa99f31d4c568ab0
+model_type: null
+name: model_clustering
+source_run_id: 4b36a1662426445383fcafa91a96b0bc
+status: 2
+status_message: null

@@ -1,0 +1,8 @@
+artifact_location: file:///home/sana/projet_mlops/mlruns/509722698013792984
+creation_time: 1777649076602
+experiment_id: '509722698013792984'
+last_update_time: 1777649076602
+lifecycle_stage: active
+name: regression-montant-commande
+trace_location: null
+workspace: default

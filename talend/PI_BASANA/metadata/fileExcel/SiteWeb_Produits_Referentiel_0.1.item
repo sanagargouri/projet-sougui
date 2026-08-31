@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_9uVPEQZmEfG6B7JMKJ_nSg" name="SiteWeb_Produits_Referentiel" dataPackage="_9uVPEgZmEfG6B7JMKJ_nSg" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/web_site_data/Produits_Sougui-Siteweb.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Produits" firstColumn="1" lastColumn="3" thousandSeparator="','" decimalSeparator="'.'" sheetList="Référentiels:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+    <sheetColumns>M</sheetColumns>
+    <sheetColumns>N</sheetColumns>
+    <sheetColumns>O</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_9uVPEgZmEfG6B7JMKJ_nSg" name="default" dataManager="_9uVPEQZmEfG6B7JMKJ_nSg">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_9uVPEwZmEfG6B7JMKJ_nSg" id="_cnLA8AZmEfG6B7JMKJ_nSg" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_9uVPFAZmEfG6B7JMKJ_nSg" label="Referentiel" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_9uVPFQZmEfG6B7JMKJ_nSg" label="Valeur" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_9uVPFgZmEfG6B7JMKJ_nSg" label="Nombre" length="255" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

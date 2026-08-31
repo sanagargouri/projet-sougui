@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_s2ew8AWREfGN_emMJtPqWQ" name="EtatAchatVente_Suivi_Achats" dataPackage="_s2ew8QWREfGN_emMJtPqWQ" Server="Localhost 127.0.0.1" FilePath="C:/Users/eree/Desktop/wetransfer_artisanat-zip_2026-01-21_0929/artisanat/artisanat/etat achats ventes 2023-2024.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="6" FirstLineCaption="true" SheetName="Suivi Des Achats" firstColumn="2" lastColumn="21" thousandSeparator="','" decimalSeparator="'.'" sheetList="Suivi Des Achats:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+    <sheetColumns>M</sheetColumns>
+    <sheetColumns>N</sheetColumns>
+    <sheetColumns>O</sheetColumns>
+    <sheetColumns>P</sheetColumns>
+    <sheetColumns>Q</sheetColumns>
+    <sheetColumns>R</sheetColumns>
+    <sheetColumns>S</sheetColumns>
+    <sheetColumns>T</sheetColumns>
+    <sheetColumns>U</sheetColumns>
+    <sheetColumns>V</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_s2ew8QWREfGN_emMJtPqWQ" name="default" dataManager="_s2ew8AWREfGN_emMJtPqWQ">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_s2ew8gWREfGN_emMJtPqWQ" id="_JgCn0AWREfGN_emMJtPqWQ" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew8wWREfGN_emMJtPqWQ" label="SMPA" length="26" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew9AWREfGN_emMJtPqWQ" label="SMPA1" length="19" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew9QWREfGN_emMJtPqWQ" label="F0590" length="10" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew9gWREfGN_emMJtPqWQ" label="Thu_Apr_06_00_00_00_CET_2023" length="28" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew9wWREfGN_emMJtPqWQ" label="_00_5" length="10" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew-AWREfGN_emMJtPqWQ" label="_19" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew-QWREfGN_emMJtPqWQ" label="Column6" length="10" precision="8" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew-gWREfGN_emMJtPqWQ" label="_6_095" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew-wWREfGN_emMJtPqWQ" label="_005" length="10" precision="9" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew_AWREfGN_emMJtPqWQ" label="_96_595" length="12" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew_QWREfGN_emMJtPqWQ" label="_96595" length="12" precision="11" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew_gWREfGN_emMJtPqWQ" label="_96_5951" length="18" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2ew_wWREfGN_emMJtPqWQ" label="Column12" length="19" precision="15" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exAAWREfGN_emMJtPqWQ" label="Paye" length="15" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exAQWREfGN_emMJtPqWQ" label="Thu_Apr_06_00_00_00_CET_20231" length="28" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exAgWREfGN_emMJtPqWQ" label="Especes" length="8" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exAwWREfGN_emMJtPqWQ" label="Column16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exBAWREfGN_emMJtPqWQ" label="Column17" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exBQWREfGN_emMJtPqWQ" label="Column18" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_s2exBgWREfGN_emMJtPqWQ" label="Travaux_et_Maintenance_Local" length="41" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

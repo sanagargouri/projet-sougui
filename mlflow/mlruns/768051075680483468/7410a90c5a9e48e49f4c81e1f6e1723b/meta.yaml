@@ -1,0 +1,14 @@
+artifact_uri: file:///home/sana/projet_mlops/mlruns/768051075680483468/7410a90c5a9e48e49f4c81e1f6e1723b/artifacts
+end_time: 1777649088399
+entry_point_name: ''
+experiment_id: '768051075680483468'
+lifecycle_stage: active
+run_id: 7410a90c5a9e48e49f4c81e1f6e1723b
+run_name: xgboost-timeseries-run1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777649086079
+status: 3
+tags: []
+user_id: sana

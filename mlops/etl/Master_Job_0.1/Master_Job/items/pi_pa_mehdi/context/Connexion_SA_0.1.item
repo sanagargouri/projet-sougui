@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_6ybzYBTEEfGwfbL60iqWlA" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_LXsVcBTFEfGwfbL60iqWlA" comment="" name="ServerName" prompt="ServerName?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="KALLALA"/>
+  <contextParameter xmi:id="_LXsVcRTFEfGwfbL60iqWlA" comment="" name="Database" prompt="Database?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="PA_BI_SA"/>
+  <contextParameter xmi:id="_LXsVchTFEfGwfbL60iqWlA" comment="" name="User" prompt="User?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="sa"/>
+  <contextParameter xmi:id="_LXsVcxTFEfGwfbL60iqWlA" comment="" name="Password" prompt="Password?" promptNeeded="false" repositoryContextId="built-in" type="id_Password" value="enc:system.encryption.key.v1:NidVBU6nLrTZZK45j3MV/9jruci5CJ1y154W/gAr8Yt5Koy482A="/>
+  <contextParameter xmi:id="_LXsVdBTFEfGwfbL60iqWlA" comment="" name="Port" prompt="Port?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="1433"/>
+  <contextParameter xmi:id="_cVX-kBTFEfGwfbL60iqWlA" comment="" name="Schema" prompt="Schema?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value=""/>
+  <contextParameter xmi:id="_cVX-kRTFEfGwfbL60iqWlA" comment="" name="AdditinalParms" prompt="AdditinalParms?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value=""/>
+</talendfile:ContextType>

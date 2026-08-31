@@ -1,0 +1,231 @@
+package routines;
+
+import java.util.*;
+
+public class SKUGenerator {
+    
+    // Map pour suivre les compteurs
+    private static Map<String, Integer> counters = new HashMap<>();
+    private static Set<String> existingSKUs = new HashSet<>();
+    
+    /**
+     * Initialiser avec les SKU existants
+     */
+    public static void init(Collection<String> skus) {
+        existingSKUs.clear();
+        counters.clear();
+        if (skus != null) {
+            existingSKUs.addAll(skus);
+        }
+    }
+    
+    /**
+     * Générer un SKU pour un produit NULL
+     */
+    public static String generateSKU(String productName) {
+        if (productName == null || productName.trim().isEmpty()) {
+            return "";
+        }
+        
+        String clean = cleanName(productName);
+        
+        // Déterminer le type de produit et générer le SKU
+        String sku = detectAndGenerate(clean);
+        
+        // S'assurer que le SKU est unique
+        return ensureUnique(sku);
+    }
+    
+    private static String cleanName(String name) {
+        return name.trim()
+            .replaceAll("[éèêë]", "e")
+            .replaceAll("[àâä]", "a")
+            .replaceAll("[îï]", "i")
+            .replaceAll("[ôö]", "o")
+            .replaceAll("[ùûü]", "u")
+            .replaceAll("[ç]", "c")
+            .replaceAll("[œ]", "oe")
+            .replaceAll("[^a-zA-Z0-9\\s]", " ")
+            .toUpperCase()
+            .replaceAll("\\s+", " ");
+    }
+    
+    private static String detectAndGenerate(String clean) {
+        // 1. DÉODORANTS
+        if (clean.contains("DEODORANT")) {
+            if (clean.contains("VANILLE")) return "DEO-SOL-VAN";
+            if (clean.contains("JASMIN")) return "DEO-SOL-JAS";
+            if (clean.contains("ROSE")) return "DEO-SOL-ROS";
+            return getNextNumbered("DEO-SOL", "001");
+        }
+        
+        // 2. BEURRES CORPORELS
+        if (clean.contains("BEURRE")) {
+            if (clean.contains("AVOCAT")) return "BOD-AVO-001";
+            if (clean.contains("COCO")) return "BOD-COC-001";
+            return getNextNumbered("BOD", "001");
+        }
+        
+        // 3. DIFFUSEURS
+        if (clean.contains("DIFFUSEUR")) {
+            if (clean.contains("AMBIANCE") && clean.contains("SOUGUI")) return "DIF-SOU-001";
+            if (clean.contains("VOITURE")) {
+                if (clean.contains("CITRON")) return "DIF-VOI-CIT";
+                if (clean.contains("JASMIN")) return "DIF-VOI-JAS";
+                if (clean.contains("ROSE")) return "DIF-VOI-ROS";
+                return "DIF-VOI-001";
+            }
+            return getNextNumbered("DIF", "001");
+        }
+        
+        // 4. PRODUITS DE SOIN (Baume à lèvres)
+        if (clean.contains("BAUME") && clean.contains("LEVRE")) {
+            return "BAU-LEV-001";
+        }
+        
+        // 5. BROCHES / BIJOUX
+        if (clean.contains("BROCHE") || (clean.contains("CUIVRE") && clean.contains("PIERRE"))) {
+            return "BRO-CUI-001";
+        }
+        
+        // 6. PARFUMS DE LINGE
+        if (clean.contains("PARFUM") && clean.contains("LINGE")) {
+            return "PAR-LIN-001";
+        }
+        
+        // 7. COUSSINS
+        if (clean.contains("COUSSIN")) {
+            if (clean.contains("CARRE") && clean.contains("40")) return "COU-CAR-40";
+            if (clean.contains("BOHO")) return "COU-BOH-001";
+            return getNextNumbered("COU", "001");
+        }
+        
+        // 8. CAPES / VETEMENTS
+        if (clean.contains("CAPE") && clean.contains("LIN")) {
+            return "CAP-LIN-001";
+        }
+        
+        // 9. SACS COUFFIN
+        if (clean.contains("SAC") && clean.contains("COUFFIN")) {
+            if (clean.contains("PAILLE")) return "SAC-PAI-001";
+            if (clean.contains("SMAR") || clean.contains("COQUILLAGE")) return "SAC-SMA-001";
+            return getNextNumbered("SAC", "001");
+        }
+        
+        // 10. BLOUZA DJERBIENNE
+        if (clean.contains("BLOUZA") || clean.contains("DJERBIENNE")) {
+            return "BLD-001";
+        }
+        
+        // 11. CAFETIERE / ZAZWA
+        if (clean.contains("CAFETIERE") || (clean.contains("ZAZWA") && !clean.contains("PETITE"))) {
+            return "ZCL-002-KB";
+        }
+        
+        // 12. SET TANIT QUATTRO
+        if (clean.contains("SET") && clean.contains("TANIT") && clean.contains("QUATTRO")) {
+            return "STQ-001";
+        }
+        
+        // 13. BRUME DE CORPS
+        if (clean.contains("BRUME") && clean.contains("CORPS")) {
+            if (clean.contains("JASMIN")) return "BRU-COR-JAS";
+            if (clean.contains("PASSION")) return "BRU-COR-PAS";
+            return getNextNumbered("BRU", "001");
+        }
+        
+        // 14. HUILE DE PEPIN DE COURGE
+        if (clean.contains("HUILE") && clean.contains("PEPIN") && clean.contains("COURGE")) {
+            return "HUI-PEP-001";
+        }
+        
+        // 15. COFFRETS
+        if (clean.contains("COFFRET")) {
+            if (clean.contains("BEL AR")) return "COF-BEL-001";
+            if (clean.contains("CUIVRE")) return "COF-CUI-001";
+            return getNextNumbered("COF", "001");
+        }
+        
+        // 16. LUNCH BOX
+        if (clean.contains("LUNCH") || clean.contains("BENTO")) {
+            return "LB-001-SB";
+        }
+        
+        // 17. PLATS ZOUBA
+        if (clean.contains("DESSERT") && clean.contains("ZOUBA")) {
+            return "PLA-DES-001";
+        }
+        if (clean.contains("BOL") && clean.contains("ZOUBA")) {
+            return "PLA-BOL-001";
+        }
+        if (clean.contains("CREUX") && clean.contains("ZOUBA")) {
+            return "PLA-CRE-001";
+        }
+        
+        // 18. GENERIQUE
+        return generateGenericSKU(clean);
+    }
+    
+    private static String getNextNumbered(String base, String defaultNum) {
+        String sku = base + "-" + defaultNum;
+        int counter = 1;
+        while (existingSKUs.contains(sku)) {
+            counter++;
+            sku = base + "-" + String.format("%03d", counter);
+        }
+        return sku;
+    }
+    
+    private static String generateGenericSKU(String clean) {
+        String[] words = clean.split(" ");
+        Set<String> stopWords = new HashSet<>(Arrays.asList(
+            "LE", "LA", "LES", "UN", "UNE", "DES", "ET", "OU", "EN", "DE", "DU"
+        ));
+        
+        String prefix = "PRD";
+        for (String word : words) {
+            if (word.length() >= 3 && !stopWords.contains(word)) {
+                prefix = word.substring(0, Math.min(4, word.length()));
+                break;
+            }
+        }
+        
+        int counter = 1;
+        String sku = prefix + "-001";
+        while (existingSKUs.contains(sku)) {
+            counter++;
+            sku = prefix + "-" + String.format("%03d", counter);
+        }
+        
+        return sku;
+    }
+    
+    private static String ensureUnique(String sku) {
+        if (!existingSKUs.contains(sku)) {
+            existingSKUs.add(sku);
+            return sku;
+        }
+        
+        String base = sku;
+        int counter = 1;
+        
+        while (existingSKUs.contains(sku)) {
+            if (sku.matches(".*-\\d{3}$")) {
+                String prefix = sku.substring(0, sku.length() - 3);
+                sku = prefix + String.format("%03d", counter);
+            } else {
+                sku = base + "-" + String.format("%03d", counter);
+            }
+            counter++;
+        }
+        
+        existingSKUs.add(sku);
+        return sku;
+    }
+    
+    public static void addSKU(String sku) {
+        if (sku != null && !sku.trim().isEmpty()) {
+            existingSKUs.add(sku);
+        }
+    }
+}

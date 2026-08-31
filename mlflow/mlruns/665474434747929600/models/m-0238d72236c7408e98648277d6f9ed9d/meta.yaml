@@ -1,0 +1,10 @@
+artifact_location: file:///home/sana/projet_mlops/mlruns/665474434747929600/models/m-0238d72236c7408e98648277d6f9ed9d/artifacts
+creation_timestamp: 1777649261095
+experiment_id: '665474434747929600'
+last_updated_timestamp: 1777649263552
+model_id: m-0238d72236c7408e98648277d6f9ed9d
+model_type: null
+name: model_fidelite
+source_run_id: c46d8f367aa24c40a57adaebf7f5bb45
+status: 2
+status_message: null
